@@ -30,21 +30,24 @@
             font-size: 1.2rem;
             opacity: 0.8;
         }
-        .home-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: #0071e3;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background 0.3s;
+        nav {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
         }
-        .home-button:hover {
-            background: #005bb5;
+        nav a {
+            color: #f5f5f7;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #2997ff;
         }
         section {
             max-width: 600px;
@@ -101,23 +104,31 @@
             header h1 {
                 font-size: 2rem;
             }
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
             section {
                 margin: 20px;
                 padding: 20px;
-            }
-            .home-button {
-                font-size: 0.9rem;
-                padding: 6px 12px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="home-button">Return to Home</a>
         <h1>Apply for Your New Home</h1>
         <p>Start your journey with a quick background check application.</p>
     </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#listings">Listings</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#location">Location</a>
+        <a href="application.html" target="_blank">Apply Now</a>
+    </nav>
 
     <section>
         <h2>Application Form</h2>

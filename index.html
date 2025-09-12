@@ -1,583 +1,180 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>California Affordable Rentals — ProCleanPlus Rentals</title>
-  <meta name="description" content="Affordable, vetted apartments across California. Apply online and get a background check processed for $55."/>
-  <style>
-    :root{
-      --accent:#1f6feb;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --bg:#f6f8fb;
-      --glass: rgba(255,255,255,0.6);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
-      color:#0f172a;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
-
-    /* header */
-    header{
-      display:flex;
-      gap:16px;
-      align-items:center;
-      justify-content:space-between;
-      padding:18px 28px;
-      background:linear-gradient(90deg, rgba(255,255,255,0.4), rgba(255,255,255,0.25));
-      backdrop-filter: blur(6px);
-      position:sticky;
-      top:0;
-      z-index:30;
-      border-bottom:1px solid rgba(15,23,42,0.04);
-    }
-    .brand{display:flex; gap:12px; align-items:center;}
-    .logo{
-      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#9b6cff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;
-      box-shadow:0 6px 18px rgba(31,111,235,0.12);
-    }
-    nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-weight:600}
-    nav a.cta{background:var(--accent);color:white;padding:8px 12px;border-radius:8px;margin-left:18px}
-
-    /* hero */
-    .hero{
-      max-width:1200px;margin:28px auto;padding:28px;background:linear-gradient(180deg,white, #fbfdff);
-      border-radius:16px;box-shadow:0 10px 30px rgba(16,24,40,0.06);display:grid;grid-template-columns:1fr 380px;gap:18px;
-    }
-    .hero h1{margin:0;font-size:26px}
-    .hero p{color:var(--muted);margin-top:8px}
-    .searchBox{display:flex;gap:8px;margin-top:14px}
-    .searchBox input, .searchBox select{
-      padding:10px 12px;border-radius:10px;border:1px solid #e6eef9;background:#fbfdff;font-weight:600
-    }
-    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-    .filter-chip{padding:8px 10px;background:#f2f7ff;border-radius:999px;border:1px solid rgba(31,111,235,0.06);font-weight:600;color:var(--accent)}
-
-    /* listings */
-    .container{max-width:1200px;margin:18px auto;padding:0 20px;}
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-      gap:18px;
-    }
-    .card{background:var(--card);border-radius:12px;padding:12px;border:1px solid rgba(15,23,42,0.04);box-shadow:0 8px 24px rgba(15,23,42,0.03);display:flex;flex-direction:column}
-    .thumb{height:160px;background:#ddd;border-radius:10px;overflow:hidden}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-    .price{font-weight:800;color:var(--accent);font-size:18px}
-    .title{font-weight:700;margin-top:8px}
-    .tags{color:var(--muted);margin-top:6px;font-size:13px}
-
-    .card footer{margin-top:12px;display:flex;gap:8px;align-items:center}
-    .btn{padding:10px 12px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:700;cursor:pointer}
-    .btn.ghost{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--muted);font-weight:700}
-
-    /* sections */
-    section{margin:34px 0;padding:20px;background:linear-gradient(180deg,white, #fbfdff);border-radius:12px;border:1px solid rgba(15,23,42,0.03)}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .contact-list{list-style:none;padding:0;margin:0}
-    .contact-list li{margin-bottom:8px;font-weight:600;color:var(--muted)}
-
-    .map{
-      width:100%;height:260px;border-radius:10px;background:linear-gradient(90deg,#e6eef9,#f7f9ff);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700;border:1px solid rgba(15,23,42,0.03)
-    }
-
-    /* footer */
-    footer{padding:18px 28px;color:var(--muted);font-size:14px;text-align:center;margin-top:22px}
-
-    /* small screens */
-    @media (max-width:920px){
-      .hero{grid-template-columns:1fr}
-      .two-col{grid-template-columns:1fr}
-    }
-
-    /* utilities */
-    .muted{color:var(--muted)}
-    .center{text-align:center}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Affordable Rentals</title>
+    <style>
+        /* Modern and professional CSS styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        #listings {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .listing-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .listing-card:hover {
+            transform: translateY(-5px);
+        }
+        .listing-card h2 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .listing-card a {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .listing-card a:hover {
+            background-color: #218838;
+        }
+        #about, #contact, #location {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0069d9;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <div class="logo">PCP</div>
-      <div>
-        <div style="font-weight:800">ProCleanPlus Rentals</div>
-        <div style="font-size:12px;color:var(--muted)">Affordable, vetted rentals across California</div>
-      </div>
-    </div>
+    <header>
+        <h1>California Affordable Rentals</h1>
+        <p>Your go-to source for modern, affordable apartments across California</p>
+        <nav>
+            <a href="#listings">Listings</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+            <a href="#location">Location</a>
+            <a href="application.html" target="_blank">Apply for Background Check</a>
+        </nav>
+    </header>
 
-    <nav>
-      <a href="#listings">Listings</a>
-      <a href="#about">About</a>
-      <a href="#apply">Apply</a>
-      <a href="#contact">Contact</a>
-      <a href="#location">Location</a>
-      <a class="cta" href="#listings">Browse</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="hero" role="banner" aria-label="Hero">
-      <div>
-        <h1>Find an affordable apartment in California — fast.</h1>
-        <p>Vetted landlords, transparent pricing, and an easy online application that includes a secure background-check workflow for $55.</p>
-
-        <div class="searchBox" aria-hidden>
-          <input id="searchInput" placeholder="Search city, neighborhood, or ZIP" />
-          <select id="beds">
-            <option value="">Any beds</option>
-            <option value="studio">Studio</option>
-            <option value="1">1 bed</option>
-            <option value="2">2 bed</option>
-            <option value="3">3+ bed</option>
-          </select>
-          <button class="btn" id="searchBtn">Search</button>
-        </div>
-
-        <div class="filters" aria-hidden>
-          <div class="filter-chip">No broker fees</div>
-          <div class="filter-chip">Move-in ready</div>
-          <div class="filter-chip">Pet-friendly options</div>
-          <div class="filter-chip">Background-checked applicants</div>
-        </div>
-
-        <p style="margin-top:14px;color:var(--muted)">Tip: Click any listing to open a detail page in a new tab where applicants can review photos and apply directly.</p>
-      </div>
-
-      <aside style="padding:8px;">
-        <div style="background:linear-gradient(180deg,#fff,#fbfdff);padding:14px;border-radius:12px;border:1px solid rgba(15,23,42,0.03)">
-          <h3 style="margin:0">Quick facts</h3>
-          <ul style="padding-left:16px;margin-top:12px;color:var(--muted)">
-            <li>Background check fee: <strong>$55</strong> (one-time per application)</li>
-            <li>Application processing within 48–72 hours</li>
-            <li>Support: hello@procleanplusrental.com</li>
-          </ul>
-          <div style="margin-top:12px">
-            <button class="btn" onclick="scrollToSection('apply')">Apply Now</button>
-            <button class="btn ghost" onclick="scrollToSection('contact')">Contact</button>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <!-- LISTINGS -->
-    <div class="container" id="listings">
-      <h2>Available Apartments</h2>
-      <p class="muted">Affordable listings across California. Click a card to open details in a new tab.</p>
-
-      <div id="listGrid" class="grid" aria-live="polite"></div>
-    </div>
-
-    <!-- ABOUT -->
-    <section id="about" class="container">
-      <h2>About Us</h2>
-      <div class="two-col">
-        <div>
-          <p style="margin-top:0">
-            At ProCleanPlus Rentals we specialize in connecting renters with affordable, well-maintained apartments across California.
-            Our team thoroughly vets every listing and landlord so you can apply with confidence. We are committed to transparent pricing,
-            quick application processing, and fair tenant screening practices. Our mission is to provide safe, affordable housing solutions that beat the competition on value and trust.
-          </p>
-
-          <p class="muted">
-            When you apply through our platform, your application is treated with strict privacy and security. We only request necessary information to run standard background checks required for tenancy verification.
-          </p>
-        </div>
-
-        <div>
-          <h4>Why choose us?</h4>
-          <ul style="padding-left:18px;color:var(--muted)">
-            <li>Handpicked affordable listings</li>
-            <li>Clear application & background-check process</li>
-            <li>Fast review turnaround (48–72 hrs)</li>
-            <li>Friendly support team to help at every step</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- APPLY -->
-    <section id="apply" class="container">
-      <h2>Application & Background Check</h2>
-      <p class="muted">Complete the quick form below when you are ready to apply. After validation you'll be redirected to a secure payment link to pay the $55 background check fee.</p>
-
-      <div style="max-width:720px">
-        <form id="mainApplyForm" onsubmit="handleApply(event)">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-            <input type="text" id="firstName" placeholder="First name" required style="padding:10px;border-radius:8px;border:1px solid #e6eef9" />
-            <input type="text" id="lastName" placeholder="Last name" required style="padding:10px;border-radius:8px;border:1px solid #e6eef9" />
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
-            <input type="tel" id="phone" placeholder="Phone number" required style="padding:10px;border-radius:8px;border:1px solid #e6eef9" />
-            <input type="email" id="email" placeholder="Email address" required style="padding:10px;border-radius:8px;border:1px solid #e6eef9" />
-          </div>
-
-          <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-            <button class="btn" type="submit">Proceed to background check ($55)</button>
-            <button class="btn ghost" type="button" onclick="document.getElementById('mainApplyForm').reset()">Clear</button>
-          </div>
-
-          <p style="margin-top:10px;color:var(--muted);font-size:13px">By applying you agree to our <strong>Tenant Screening</strong> policy and authorize a background check. Your information is not shared except to process your application and required checks.</p>
-        </form>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="container">
-      <h2>Contact</h2>
-      <div class="two-col">
-        <div>
-          <p style="margin-top:0">Have questions or need help with an application? Reach out and our team will respond within one business day.</p>
-          <ul class="contact-list">
-            <li>Email: <a href="mailto:hello@procleanplusrental.com">hello@procleanplusrental.com</a></li>
-            <li>Phone: (555) 555-0123</li>
-            <li>Hours: Mon–Fri, 9am–6pm PT</li>
-          </ul>
-        </div>
-        <div>
-          <form id="contactForm" onsubmit="handleContact(event)">
-            <input required placeholder="Your name" id="contactName" style="padding:10px;border-radius:8px;border:1px solid #e6eef9;width:100%" />
-            <input required placeholder="Email" id="contactEmail" type="email" style="padding:10px;border-radius:8px;border:1px solid #e6eef9;width:100%;margin-top:8px" />
-            <textarea required id="contactMessage" placeholder="How can we help?" style="margin-top:8px;padding:10px;border-radius:8px;border:1px solid #e6eef9;width:100%;min-height:120px"></textarea>
-            <div style="margin-top:8px">
-              <button class="btn" type="submit">Send message</button>
+    <section id="listings">
+        <h1>Apartments for Rent in California</h1>
+        <div class="listings-grid">
+            <div class="listing-card">
+                <h2>Cozy Studio in Los Angeles</h2>
+                <p>1 Bath | 500 sq ft | $1,200/month</p>
+                <p>Affordable urban living in the heart of LA with modern amenities.</p>
+                <a href="apartment1.html" target="_blank">View Details</a>
             </div>
-          </form>
+            <div class="listing-card">
+                <h2>Spacious 2BR in San Francisco</h2>
+                <p>2 Bath | 1,000 sq ft | $2,500/month</p>
+                <p>Stunning views and convenient location near tech hubs.</p>
+                <a href="apartment2.html" target="_blank">View Details</a>
+            </div>
+            <div class="listing-card">
+                <h2>Modern 1BR in San Diego</h2>
+                <p>1 Bath | 700 sq ft | $1,800/month</p>
+                <p>Beachside vibes with easy access to downtown.</p>
+                <a href="apartment3.html" target="_blank">View Details</a>
+            </div>
+            <div class="listing-card">
+                <h2>Luxury 3BR in Sacramento</h2>
+                <p>2 Bath | 1,500 sq ft | $2,200/month</p>
+                <p>Family-friendly with parks and schools nearby.</p>
+                <a href="apartment4.html" target="_blank">View Details</a>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- LOCATION -->
-    <section id="location" class="container">
-      <h2>Our Main Office</h2>
-      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
-        <div style="flex:1;min-width:260px">
-          <p style="margin-top:0">ProCleanPlus Rentals HQ</p>
-          <p class="muted">123 Market Street, Suite 400<br/>San Francisco, CA 94103</p>
-          <p class="muted">Office hours: Mon–Fri, 9am–5pm PT</p>
-        </div>
-        <div class="map" aria-hidden>
-          MAP PLACEHOLDER — embed Google Maps iframe here if desired
-        </div>
-      </div>
+    <section id="about">
+        <h1>About Us</h1>
+        <p>At California Affordable Rentals, we are dedicated to providing high-quality, affordable housing options throughout the Golden State. With years of experience in the real estate market, our team handpicks properties that offer exceptional value, modern amenities, and prime locations to beat the competition. We prioritize tenant satisfaction, ensuring a seamless rental process from inquiry to move-in. Choose us for reliable service, transparent pricing, and apartments that feel like home. Our commitment to affordability without compromising on quality makes us the top choice for renters seeking the best deals in California.</p>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <p>Have questions? Reach out to us via email or phone.</p>
+        <p>Email: <a href="mailto:info@calirentals.com">info@calirentals.com</a></p>
+        <p>Phone: (555) 123-4567</p>
+    </section>
+
+    <section id="location">
+        <h1>Our Main Office Location</h1>
+        <p>Visit us at: 123 Main Street, San Francisco, CA 94105</p>
+        <p><a href="https://www.google.com/maps/search/?api=1&query=123+Main+Street,+San+Francisco,+CA+94105" target="_blank">View on Google Maps</a></p>
     </section>
 
     <footer>
-      © <span id="curYear"></span> ProCleanPlus Rentals • Built for GitHub Pages • All rights reserved.
+        &copy; 2025 California Affordable Rentals. All rights reserved.
     </footer>
-  </main>
-
-  <script>
-    // sample data for listings
-    const listings = [
-      {
-        id: 'pcp-1001',
-        title: 'Sunny Studio — Oakland (Temescal)',
-        price: 1295,
-        beds: 'studio',
-        baths: 1,
-        sqft: 420,
-        city: 'Oakland',
-        zipcode: '94609',
-        images: [
-          'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1400&q=60&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=60&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1531384693689-8e1c7bf0f1f3?w=1400&q=60&auto=format&fit=crop'
-        ],
-        description: 'Recently renovated studio in a desirable Temescal location. Close to transit, shops, and parks. Utilities vary by unit; some included.',
-        petFriendly: true
-      },
-      {
-        id: 'pcp-1002',
-        title: '2BR Classic Apartment — Long Beach',
-        price: 1799,
-        beds: 2,
-        baths: 1,
-        sqft: 850,
-        city: 'Long Beach',
-        zipcode: '90802',
-        images: [
-          'https://images.unsplash.com/photo-1560448204-7f3f6b0c1a4f?w=1400&q=60&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1600585154340-1a1f4b6bcb4a?w=1400&q=60&auto=format&fit=crop'
-        ],
-        description: 'Spacious 2-bedroom close to the waterfront and commuting routes. Bright living room and modern kitchen. On-site laundry.'
-      },
-      {
-        id: 'pcp-1003',
-        title: '1BR Modern Flat — San Diego (North Park)',
-        price: 1495,
-        beds: 1,
-        baths: 1,
-        sqft: 620,
-        city: 'San Diego',
-        zipcode: '92104',
-        images: [
-          'https://images.unsplash.com/photo-1505691723518-36a193b7f6a1?w=1400&q=60&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1576675782698-c82e7b5f2a81?w=1400&q=60&auto=format&fit=crop'
-        ],
-        description: 'Contemporary one-bedroom walking distance to shops, restaurants, and transit. Utilities not included.'
-      }
-    ];
-
-    // render listing grid
-    const grid = document.getElementById('listGrid');
-    function renderListings(items){
-      grid.innerHTML = '';
-      items.forEach(l => {
-        const div = document.createElement('article');
-        div.className = 'card';
-        div.innerHTML = `
-          <div class="thumb" aria-hidden><img src="${l.images[0]}" alt="${escapeHtml(l.title)} image" /></div>
-          <div class="meta">
-            <div>
-              <div class="price">$${comma(l.price)}/mo</div>
-              <div class="tags muted">${l.city} · ${l.zipcode}</div>
-            </div>
-            <div style="text-align:right">
-              <div style="font-size:12px;color:var(--muted)">${l.beds || '—'} • ${l.baths || '—'} ba • ${l.sqft || '--'} sqft</div>
-            </div>
-          </div>
-          <div class="title">${escapeHtml(l.title)}</div>
-          <div class="tags" style="margin-top:6px">${escapeHtml(truncate(l.description, 120))}</div>
-          <footer>
-            <button class="btn" onclick="openDetail('${l.id}')">View details</button>
-            <button class="btn ghost" onclick="quickApply('${l.id}')">Apply</button>
-          </footer>
-        `;
-        grid.appendChild(div);
-      });
-    }
-
-    // helpers
-    function comma(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,","); }
-    function truncate(s, n){ return s.length>n ? s.slice(0,n-1)+'…' : s; }
-    function escapeHtml(text) { return (text+'').replace(/[&<>"']/g, (m)=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
-
-    // search
-    document.getElementById('searchBtn').addEventListener('click', ()=>{
-      const q = (document.getElementById('searchInput').value||'').toLowerCase();
-      const beds = document.getElementById('beds').value;
-      const filtered = listings.filter(l=>{
-        if(beds && l.beds !== beds && !(beds==='studio' && l.beds==='studio')) return false;
-        if(!q) return true;
-        return (l.title + ' ' + l.city + ' ' + (l.zipcode||'') + ' ' + l.description).toLowerCase().includes(q);
-      });
-      renderListings(filtered);
-    });
-
-    // open detail in new window: create a small HTML blob and open in new tab for each listing
-    function openDetail(id){
-      const listing = listings.find(x=>x.id===id);
-      if(!listing) return alert('Listing not found');
-      const detailHtml = generateDetailHtml(listing);
-      const blob = new Blob([detailHtml], {type: 'text/html'});
-      const url = URL.createObjectURL(blob);
-      window.open(url, '_blank');
-      // revoke object URL after some seconds to free memory
-      setTimeout(()=>URL.revokeObjectURL(url), 60_000);
-    }
-
-    // quickApply: open detail then scroll to apply form (or open apply section)
-    function quickApply(id){
-      openDetail(id);
-      // also auto-scroll to apply on main page for convenience
-      scrollToSection('apply');
-      // prefill with listing id maybe — not implemented; can be added server-side.
-    }
-
-    // Application form submit handler (main page)
-    function handleApply(e){
-      e.preventDefault();
-      const first = document.getElementById('firstName').value.trim();
-      const last = document.getElementById('lastName').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const email = document.getElementById('email').value.trim();
-      if(!first || !last || !phone || !validateEmail(email)){
-        alert('Please complete all fields with valid information.');
-        return;
-      }
-
-      // build a redirect URL for payment processor (placeholder).
-      // IMPORTANT: Replace the `paymentUrl` below with your real payment-checkout link
-      // (e.g., Stripe Checkout Session URL, PayPal hosted payment link, etc.)
-      const paymentUrl = buildPaymentUrl({first,last,phone,email,amount:55});
-
-      // Open payment link in new tab
-      window.open(paymentUrl, '_blank');
-
-      // Friendly confirmation for the user
-      alert('You were redirected to the payment page to complete the $55 background check fee. After payment, we will process your application (48–72 hrs).');
-      document.getElementById('mainApplyForm').reset();
-    }
-
-    // contact form
-    function handleContact(e){
-      e.preventDefault();
-      const name = document.getElementById('contactName').value.trim();
-      const email = document.getElementById('contactEmail').value.trim();
-      const msg = document.getElementById('contactMessage').value.trim();
-      if(!name || !validateEmail(email) || !msg){ alert('Please complete the contact form'); return; }
-
-      // This demo does not send emails. On production, replace with a serverless function or Formspree/Netlify forms.
-      alert('Thanks — your message was received. We will reply to ' + email + ' within one business day.');
-      document.getElementById('contactForm').reset();
-    }
-
-    // sample payment URL builder (placeholder)
-    function buildPaymentUrl({first,last,phone,email,amount}){
-      // Replace the base URL below with your payment provider's hosted checkout URL.
-      // Example: Stripe Checkout Session URL, PayPal Checkout, or your payment provider.
-      // We add applicant data as query params for the payment redirect (so backend can associate payment -> applicant).
-      const base = 'https://example.com/pay'; // <<< CHANGE this to your real payment processor URL
-      const params = new URLSearchParams({
-        amount: amount.toString(),
-        currency: 'USD',
-        first, last, phone, email, source: 'procleanplus'
-      });
-      return `${base}?${params.toString()}`;
-    }
-
-    function validateEmail(e){ return /\S+@\S+\.\S+/.test(e); }
-
-    // generate detail HTML for new tab
-    function generateDetailHtml(l){
-      const imagesHtml = l.images.map(src => `<img src="${src}" style="width:100%;max-height:360px;object-fit:cover;border-radius:10px;margin-bottom:10px" alt="${escapeHtml(l.title)}">`).join('');
-      const safeDesc = escapeHtml(l.description);
-      const applyQuery = new URLSearchParams({listingId:l.id, listingTitle:l.title});
-      // small inline page with apply form that redirects to the same payment link builder (using a placeholder)
-      return `<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>${escapeHtml(l.title)}</title>
-  <style>
-    body{font-family:Inter,system-ui,Arial;margin:18px;color:#0f172a;line-height:1.45}
-    .wrap{max-width:1000px;margin:0 auto}
-    .back{font-weight:700;color:#475569;text-decoration:none}
-    h1{margin-top:8px}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
-    .card{background:#fff;padding:14px;border-radius:12px;border:1px solid rgba(15,23,42,0.04)}
-    label{display:block;font-weight:700;margin-top:8px}
-    input{padding:10px;border-radius:8px;border:1px solid #e6eef9;width:100%}
-    button{background:#1f6feb;color:#fff;padding:10px 12px;border-radius:10px;border:0;margin-top:12px;font-weight:800;cursor:pointer}
-    @media (max-width:920px){ .grid{grid-template-columns:1fr} }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <a class="back" href="#" onclick="window.close();return false">&larr; Close window</a>
-    <h1>${escapeHtml(l.title)}</h1>
-    <div style="color:#6b7280">${l.city} · ${l.zipcode} · $${comma(l.price)}/mo</div>
-    <div style="margin-top:12px" class="grid">
-      <div>
-        ${imagesHtml}
-        <div style="padding:10px 0;color:#374151">${safeDesc}</div>
-        <div style="display:flex;gap:10px">
-          <div style="font-weight:800">$${comma(l.price)}/mo</div>
-          <div style="color:#6b7280">${l.beds || '—'} • ${l.baths || '—'} ba • ${l.sqft || '--'} sqft</div>
-        </div>
-      </div>
-      <aside>
-        <div class="card">
-          <div style="font-weight:800">Apply for this unit</div>
-          <div style="color:#6b7280;margin-top:8px">Background check fee: <strong>$55</strong></div>
-          <form onsubmit="applyDetail(event)">
-            <label>First name <input id="dFirst" required></label>
-            <label>Last name <input id="dLast" required></label>
-            <label>Phone <input id="dPhone" required></label>
-            <label>Email <input id="dEmail" type="email" required></label>
-            <input type="hidden" id="listingId" value="${escapeHtml(l.id)}" />
-            <button type="submit">Apply & Pay $55</button>
-          </form>
-          <p style="color:#6b7280;font-size:13px;margin-top:8px">After payment we will verify your application and follow up by email.</p>
-        </div>
-      </aside>
-    </div>
-  </div>
-
-  <script>
-    function applyDetail(e){
-      e.preventDefault();
-      const first = document.getElementById('dFirst').value.trim();
-      const last = document.getElementById('dLast').value.trim();
-      const phone = document.getElementById('dPhone').value.trim();
-      const email = document.getElementById('dEmail').value.trim();
-      const listingId = document.getElementById('listingId').value;
-
-      if(!first || !last || !phone || !(/\\S+@\\S+\\.\\S+/.test(email))){
-        return alert('Please complete all fields.');
-      }
-
-      // Build payment URL with applicant/listing info
-      const base = 'https://example.com/pay'; // <<< Replace with your real payment link
-      const params = new URLSearchParams({
-        amount: 55, currency: 'USD', first, last, phone, email, listingId
-      });
-      const url = base + '?' + params.toString();
-      window.open(url,'_blank');
-      alert('You have been redirected to the payment page for the $55 background check. After payment we will process your application.');
-      // optionally close the window: window.close();
-    }
-  </script>
-</body>
-</html>`;
-    }
-
-    function scrollToSection(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.scrollIntoView({behavior:'smooth'});
-    }
-
-    // initial render
-    renderListings(listings);
-    document.getElementById('curYear').textContent = new Date().getFullYear();
-
-    // small: populate listing via URL? not necessary for now.
-
-  </script>
-  <!--
-    Deployment & customization notes:
-
-    1) To publish:
-       - Create a new GitHub repository, add this file as index.html to the root, then enable GitHub Pages (branch: main / root).
-       - The site will be available at https://<username>.github.io/<repo>/ or at the repo root if using a user page.
-
-    2) Replace the placeholder payment link:
-       - Currently the code redirects to "https://example.com/pay?..." (a placeholder).
-       - Replace the base URL in `buildPaymentUrl()` (top-level apply) and in the generated detail HTML (generateDetailHtml) with your real payment-hosted checkout link:
-         • For Stripe: create a Checkout Session server-side and redirect users to the session URL (recommended).
-         • For PayPal: you can use a hosted PayPal payment link.
-         • For quick testing: services like PayPal.Me or Stripe test checkout links can be used.
-
-    3) Server-side & security:
-       - This is a static front-end. For production, you should create a server-side handler to:
-         • Create secure Checkout sessions (Stripe recommended).
-         • Persist applicants (name, contact, listing applied to) in a database.
-         • Verify payments and then trigger the background-check provider with the applicant data (or integrate a prebuilt background-check vendor).
-       - Do NOT rely only on query-string parameters for sensitive workflows.
-
-    4) Images:
-       - The sample images are from Unsplash (public). Replace images in the `listings` array with your own hosted images or S3 links.
-
-    5) Background checks:
-       - Integrate with a licensed background-check provider (TransUnion/Triad/GoodHire/etc.) for real checks. Ensure you comply with FCRA and local laws; show proper consent disclosures and obtain any required written consent.
-
-    6) Extending:
-       - Add serverless form handlers (Netlify Functions, Vercel, or AWS Lambda) for contact form + application persistence.
-       - Add search filters, saved searches, and landlord dashboards if you want to scale.
-
-    If you want, I can:
-    - Split this single-file site into multiple pages (index + detail per listing) or add real Stripe integration code (requires server-side secret).
-    - Generate a README with exact steps for GitHub Pages publishing.
-  -->
 </body>
 </html>

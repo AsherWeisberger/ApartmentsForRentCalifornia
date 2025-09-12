@@ -3,178 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>California Affordable Rentals</title>
+    <title>California Premier Rentals</title>
     <style>
-        /* Modern and professional CSS styling */
-        body {
-            font-family: 'Arial', sans-serif;
+        /* Apple-inspired modern and professional styling */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f7fa;
-            color: #333;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #fafafa;
+            color: #1d1d1f;
+            line-height: 1.5;
+            overflow-x: hidden;
         }
         header {
-            background-color: #007bff;
+            background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7));
             color: white;
-            padding: 20px;
+            padding: 80px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         header h1 {
-            margin: 0;
+            font-size: 3.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
-        nav {
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.8;
             margin-top: 10px;
         }
+        nav {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
         nav a {
-            color: white;
-            margin: 0 15px;
+            color: #f5f5f7;
             text-decoration: none;
-            font-weight: bold;
+            margin: 0 20px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #2997ff;
         }
         section {
-            padding: 40px 20px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 60px 20px;
         }
         #listings {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
         }
         .listings-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 20px;
         }
         .listing-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .listing-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .listing-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .listing-card-content {
+            padding: 20px;
         }
         .listing-card h2 {
-            margin-top: 0;
-            color: #007bff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+        .listing-card p {
+            font-size: 1rem;
+            color: #6e6e73;
+            margin-bottom: 15px;
         }
         .listing-card a {
             display: inline-block;
-            background-color: #28a745;
+            background: #0071e3;
             color: white;
             padding: 10px 20px;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
+            font-weight: 500;
+            transition: background 0.3s;
         }
         .listing-card a:hover {
-            background-color: #218838;
+            background: #005bb5;
         }
         #about, #contact, #location {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 18px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+        }
+        #about h1, #contact h1, #location h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
             margin-bottom: 20px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: 0 auto;
+        #about p, #contact p, #location p {
+            font-size: 1.2rem;
+            color: #6e6e73;
         }
-        input, button {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        #contact a, #location a {
+            color: #0071e3;
+            text-decoration: none;
         }
-        button {
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0069d9;
+        #contact a:hover, #location a:hover {
+            text-decoration: underline;
         }
         footer {
-            background-color: #007bff;
-            color: white;
+            background: #f5f5f7;
+            color: #6e6e73;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+            .listings-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>California Affordable Rentals</h1>
-        <p>Your go-to source for modern, affordable apartments across California</p>
-        <nav>
-            <a href="#listings">Listings</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
-            <a href="#location">Location</a>
-            <a href="application.html" target="_blank">Apply for Background Check</a>
-        </nav>
+        <h1>California Premier Rentals</h1>
+        <p>Discover modern, affordable apartments designed for you</p>
     </header>
 
+    <nav>
+        <a href="#listings">Listings</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#location">Location</a>
+        <a href="application.html" target="_blank">Apply Now</a>
+    </nav>
+
     <section id="listings">
-        <h1>Apartments for Rent in California</h1>
+        <h1>Explore Our Apartments</h1>
         <div class="listings-grid">
             <div class="listing-card">
-                <h2>Cozy Studio in Los Angeles</h2>
-                <p>1 Bath | 500 sq ft | $1,200/month</p>
-                <p>Affordable urban living in the heart of LA with modern amenities.</p>
-                <a href="apartment1.html" target="_blank">View Details</a>
+                <img src="https://via.placeholder.com/400x200?text=Cozy+Studio+LA" alt="Cozy Studio">
+                <div class="listing-card-content">
+                    <h2>Cozy Studio in Los Angeles</h2>
+                    <p>1 Bath | 500 sq ft | $1,200/month</p>
+                    <p>Urban elegance in the heart of LA with modern amenities.</p>
+                    <a href="apartment1.html" target="_blank">View Details</a>
+                </div>
             </div>
             <div class="listing-card">
-                <h2>Spacious 2BR in San Francisco</h2>
-                <p>2 Bath | 1,000 sq ft | $2,500/month</p>
-                <p>Stunning views and convenient location near tech hubs.</p>
-                <a href="apartment2.html" target="_blank">View Details</a>
+                <img src="https://via.placeholder.com/400x200?text=Spacious+2BR+SF" alt="Spacious 2BR">
+                <div class="listing-card-content">
+                    <h2>Spacious 2BR in San Francisco</h2>
+                    <p>2 Bath | 1,000 sq ft | $2,500/month</p>
+                    <p>Stunning views and tech hub access in a vibrant neighborhood.</p>
+                    <a href="apartment2.html" target="_blank">View Details</a>
+                </div>
             </div>
             <div class="listing-card">
-                <h2>Modern 1BR in San Diego</h2>
-                <p>1 Bath | 700 sq ft | $1,800/month</p>
-                <p>Beachside vibes with easy access to downtown.</p>
-                <a href="apartment3.html" target="_blank">View Details</a>
+                <img src="https://via.placeholder.com/400x200?text=Modern+1BR+SD" alt="Modern 1BR">
+                <div class="listing-card-content">
+                    <h2>Modern 1BR in San Diego</h2>
+                    <p>1 Bath | 700 sq ft | $1,800/month</p>
+                    <p>Beachside living with easy access to downtown.</p>
+                    <a href="apartment3.html" target="_blank">View Details</a>
+                </div>
             </div>
             <div class="listing-card">
-                <h2>Luxury 3BR in Sacramento</h2>
-                <p>2 Bath | 1,500 sq ft | $2,200/month</p>
-                <p>Family-friendly with parks and schools nearby.</p>
-                <a href="apartment4.html" target="_blank">View Details</a>
+                <img src="https://via.placeholder.com/400x200?text=Luxury+3BR+Sacramento" alt="Luxury 3BR">
+                <div class="listing-card-content">
+                    <h2>Luxury 3BR in Sacramento</h2>
+                    <p>2 Bath | 1,500 sq ft | $2,200/month</p>
+                    <p>Family-friendly with parks and schools nearby.</p>
+                    <a href="apartment4.html" target="_blank">View Details</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="about">
         <h1>About Us</h1>
-        <p>At California Affordable Rentals, we are dedicated to providing high-quality, affordable housing options throughout the Golden State. With years of experience in the real estate market, our team handpicks properties that offer exceptional value, modern amenities, and prime locations to beat the competition. We prioritize tenant satisfaction, ensuring a seamless rental process from inquiry to move-in. Choose us for reliable service, transparent pricing, and apartments that feel like home. Our commitment to affordability without compromising on quality makes us the top choice for renters seeking the best deals in California.</p>
+        <p>California Premier Rentals redefines affordable luxury in housing. We curate exceptional apartments across California, blending modern design, prime locations, and unbeatable value. Our mission is to make renting effortless and rewarding, offering a seamless experience from discovery to move-in. With a focus on quality, transparency, and tenant satisfaction, we stand out as the premier choice for renters seeking homes that inspire. Trust us to deliver spaces that feel uniquely yours, at prices that outshine the competition.</p>
     </section>
 
     <section id="contact">
         <h1>Contact Us</h1>
-        <p>Have questions? Reach out to us via email or phone.</p>
-        <p>Email: <a href="mailto:info@calirentals.com">info@calirentals.com</a></p>
+        <p>We're here to help. Reach out with any questions or inquiries.</p>
+        <p>Email: <a href="mailto:info@calipremierrentals.com">info@calipremierrentals.com</a></p>
         <p>Phone: (555) 123-4567</p>
     </section>
 
     <section id="location">
-        <h1>Our Main Office Location</h1>
-        <p>Visit us at: 123 Main Street, San Francisco, CA 94105</p>
+        <h1>Visit Our Office</h1>
+        <p>123 Main Street, San Francisco, CA 94105</p>
         <p><a href="https://www.google.com/maps/search/?api=1&query=123+Main+Street,+San+Francisco,+CA+94105" target="_blank">View on Google Maps</a></p>
     </section>
 
     <footer>
-        &copy; 2025 California Affordable Rentals. All rights reserved.
+        &copy; 2025 California Premier Rentals. All rights reserved.
     </footer>
 </body>
 </html>

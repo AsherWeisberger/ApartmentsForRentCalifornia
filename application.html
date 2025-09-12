@@ -3,67 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application for Background Check - California Affordable Rentals</title>
+    <title>Application - California Premier Rentals</title>
     <style>
-        /* Reuse similar styling for consistency */
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f7fa;
-            color: #333;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #fafafa;
+            color: #1d1d1f;
         }
         header {
-            background-color: #007bff;
+            background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7));
             color: white;
-            padding: 20px;
+            padding: 60px 20px;
             text-align: center;
         }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
         section {
-            padding: 40px 20px;
             max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
         form {
             display: flex;
             flex-direction: column;
         }
-        input, button {
+        input {
+            padding: 12px;
             margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #0071e3;
         }
         button {
-            background-color: #007bff;
+            background: #0071e3;
             color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
         }
         button:hover {
-            background-color: #0069d9;
+            background: #005bb5;
         }
         footer {
-            background-color: #007bff;
-            color: white;
+            background: #f5f5f7;
+            color: #6e6e73;
             text-align: center;
-            padding: 10px;
-            margin-top: 20px;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            section {
+                margin: 20px;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Apply for Background Check</h1>
-        <p>Complete this form to initiate your background check and qualify for renting with us.</p>
+        <h1>Apply for Your New Home</h1>
+        <p>Start your journey with a quick background check application.</p>
     </header>
 
     <section>
         <h2>Application Form</h2>
-        <p>Fill in your details below. Upon submission, you'll be redirected to pay the $55 background check fee.</p>
-        <form action="https://example.com/payment?amount=55" method="get"> <!-- Placeholder payment link; replace with real payment gateway URL -->
+        <p>Fill in your details to proceed to the $55 background check payment.</p>
+        <form action="https://example.com/payment?amount=55" method="get">
             <input type="text" name="first_name" placeholder="First Name" required>
             <input type="text" name="last_name" placeholder="Last Name" required>
             <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -73,7 +110,7 @@
     </section>
 
     <footer>
-        &copy; 2025 California Affordable Rentals. All rights reserved.
+        &copy; 2025 California Premier Rentals. All rights reserved.
     </footer>
 </body>
 </html>

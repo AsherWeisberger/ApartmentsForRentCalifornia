@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application for Background Check - California Affordable Rentals</title>
+    <style>
+        /* Reuse similar styling for consistency */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0069d9;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Apply for Background Check</h1>
+        <p>Complete this form to initiate your background check and qualify for renting with us.</p>
+    </header>
+
+    <section>
+        <h2>Application Form</h2>
+        <p>Fill in your details below. Upon submission, you'll be redirected to pay the $55 background check fee.</p>
+        <form action="https://example.com/payment?amount=55" method="get"> <!-- Placeholder payment link; replace with real payment gateway URL -->
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <button type="submit">Apply and Pay $55</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2025 California Affordable Rentals. All rights reserved.
+    </footer>
+</body>
+</html>

@@ -187,25 +187,23 @@
         <a href="application.html" target="_blank">Apply Now</a>
     </nav>
 
-       <section class="images">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/a.jpg" alt="Living Room">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/b.jpg" alt="Kitchen">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/c.jpg" alt="Bedroom">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/d.jpg" alt="Bathroom">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/e.jpg" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/f.jpg" alt="Exterior">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/g.jpg" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/h.jpg" alt="Exterior">     
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/i.jpg" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/j.jpg" alt="Exterior">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/k.jpg" alt="Balcony">
-     
+    <section class="images">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/a.jpg" alt="Living Room" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/b.jpg" alt="Kitchen" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/c.jpg" alt="Bedroom" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/d.jpg" alt="Bathroom" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/e.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/f.jpg" alt="Exterior" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/g.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/h.jpg" alt="Exterior" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/i.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/j.jpg" alt="Exterior" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/k.jpg" alt="Balcony" onclick="openLightbox(this.src)">
     </section>
 
-
-    <div class="lightbox" id="lightbox">
-        <span class="close-btn" onclick="closeLightbox()">×</span>
-        <img id="lightbox-img" src="" alt="Enlarged Image">
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close-btn" onclick="closeLightbox()" aria-label="Close lightbox">×</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image" onclick="event.stopPropagation()">
     </div>
 
     <section id="details">
@@ -214,7 +212,7 @@
             <li>Rent: $2,400/month</li>
             <li>Size: 1000 sq ft</li>
             <li>Bathrooms: 2</li>
-            <li>Amenities: WiFi, Parking, Laundry in unit, backyard, private gated area/li>
+            <li>Amenities: WiFi, Parking, Laundry in unit, backyard, private gated area</li>
             <li>Location: West Hollywood, CA</li>
             <li>Available: Immediately</li>
         </ul>
@@ -242,11 +240,19 @@
             const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = src;
             lightbox.style.display = 'flex';
+            document.addEventListener('keydown', handleKeyPress);
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.style.display = 'none';
+            document.removeEventListener('keydown', handleKeyPress);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
         }
     </script>
 </body>

@@ -81,10 +81,17 @@
             transform: translateY(-10px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
-        .listing-card img {
+        .listing-card-preview {
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            background: #f5f5f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            text-align: center;
         }
         .listing-card-content {
             padding: 20px;
@@ -154,6 +161,9 @@
             .listings-grid {
                 grid-template-columns: 1fr;
             }
+            .listing-card-preview {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -176,7 +186,7 @@
         <h1>Explore Our Apartments</h1>
         <div class="listings-grid">
             <div class="listing-card">
-                <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/1.PNG" alt="Cozy Studio">
+                <div class="listing-card-preview">Option 1</div>
                 <div class="listing-card-content">
                     <h2>Cozy Studio in Los Angeles</h2>
                     <p>1 Bath | 500 sq ft | $1,200/month</p>
@@ -185,7 +195,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Spacious+2BR+SF" alt="Spacious 2BR">
+                <div class="listing-card-preview">Option 2</div>
                 <div class="listing-card-content">
                     <h2>Spacious 2BR in San Francisco</h2>
                     <p>2 Bath | 1,000 sq ft | $2,500/month</p>
@@ -194,7 +204,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Modern+1BR+SD" alt="Modern 1BR">
+                <div class="listing-card-preview">Option 3</div>
                 <div class="listing-card-content">
                     <h2>Modern 1BR in San Diego</h2>
                     <p>1 Bath | 700 sq ft | $1,800/month</p>
@@ -203,7 +213,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Luxury+3BR+Sacramento" alt="Luxury 3BR">
+                <div class="listing-card-preview">Option 4</div>
                 <div class="listing-card-content">
                     <h2>Luxury 3BR in Sacramento</h2>
                     <p>2 Bath | 1,500 sq ft | $2,200/month</p>
@@ -212,7 +222,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Chic+1BR+Oakland" alt="Chic 1BR">
+                <div class="listing-card-preview">Option 5</div>
                 <div class="listing-card-content">
                     <h2>Chic 1BR in Oakland</h2>
                     <p>1 Bath | 650 sq ft | $1,600/month</p>
@@ -221,7 +231,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Sunny+2BR+Santa+Monica" alt="Sunny 2BR">
+                <div class="listing-card-preview">Option 6</div>
                 <div class="listing-card-content">
                     <h2>Sunny 2BR in Santa Monica</h2>
                     <p>2 Bath | 1,100 sq ft | $2,800/month</p>
@@ -230,7 +240,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Cozy+2BR+Fresno" alt="Cozy 2BR">
+                <div class="listing-card-preview">Option 7</div>
                 <div class="listing-card-content">
                     <h2>Cozy 2BR in Fresno</h2>
                     <p>1 Bath | 900 sq ft | $1,400/month</p>
@@ -239,7 +249,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Modern+Studio+Irvine" alt="Modern Studio">
+                <div class="listing-card-preview">Option 8</div>
                 <div class="listing-card-content">
                     <h2>Modern Studio in Irvine</h2>
                     <p>1 Bath | 450 sq ft | $1,300/month</p>
@@ -248,7 +258,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Spacious+3BR+San+Jose" alt="Spacious 3BR">
+                <div class="listing-card-preview">Option 9</div>
                 <div class="listing-card-content">
                     <h2>Spacious 3BR in San Jose</h2>
                     <p>2 Bath | 1,600 sq ft | $2,900/month</p>
@@ -257,7 +267,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Elegant+1BR+Pasadena" alt="Elegant 1BR">
+                <div class="listing-card-preview">Option 10</div>
                 <div class="listing-card-content">
                     <h2>Elegant 1BR in Pasadena</h2>
                     <p>1 Bath | 700 sq ft | $1,700/month</p>
@@ -266,7 +276,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Luxury+2BR+Long+Beach" alt="Luxury 2BR">
+                <div class="listing-card-preview">Option 11</div>
                 <div class="listing-card-content">
                     <h2>Luxury 2BR in Long Beach</h2>
                     <p>2 Bath | 1,200 sq ft | $2,400/month</p>
@@ -275,7 +285,7 @@
                 </div>
             </div>
             <div class="listing-card">
-                <img src="https://via.placeholder.com/400x200?text=Bright+Studio+Bakersfield" alt="Bright Studio">
+                <div class="listing-card-preview">Option 12</div>
                 <div class="listing-card-content">
                     <h2>Bright Studio in Bakersfield</h2>
                     <p>1 Bath | 400 sq ft | $1,000/month</p>

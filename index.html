@@ -82,12 +82,16 @@
             gap: 30px;
             padding: 20px;
         }
+
+        /* --- UPDATED LISTING CARD STYLING --- */
         .listing-card {
             background: #fff;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
         .listing-card:hover {
             transform: translateY(-10px);
@@ -97,16 +101,19 @@
             width: 100%;
             height: 200px;
             background: #f5f5f7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1d1d1f;
-            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .listing-card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         .listing-card-content {
+            background-color: white;
             padding: 20px;
+            flex-grow: 1;
         }
         .listing-card h2 {
             font-size: 1.5rem;
@@ -132,6 +139,7 @@
         .listing-card a:hover {
             background: #005bb5;
         }
+
         #contact a, #location a {
             color: #0071e3;
             text-decoration: none;
@@ -156,9 +164,6 @@
             }
             .listings-grid {
                 grid-template-columns: 1fr;
-            }
-            .listing-card-preview {
-                font-size: 1.2rem;
             }
         }
     </style>
@@ -186,7 +191,7 @@
 
             <div class="listing-card">
                 <div class="listing-card-preview">
-                    <img src=https://asherweisberger.github.io/ApartmentsForRentCalifornia/2.png alt="Apartment 1"">
+                    <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/2.png" alt="Apartment 1">
                 </div>
                 <div class="listing-card-content">
                     <h2>Los Angeles</h2>
@@ -195,9 +200,9 @@
                 </div>
             </div>
 
-             <div class="listing-card">
+            <div class="listing-card">
                 <div class="listing-card-preview">
-                    <img src=https://asherweisberger.github.io/ApartmentsForRentCalifornia/22.jpg alt="Apartment 2"">
+                    <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/22.jpg" alt="Apartment 2">
                 </div>
                 <div class="listing-card-content">
                     <h2>Beverly Hills</h2>
@@ -208,7 +213,7 @@
 
             <div class="listing-card">
                 <div class="listing-card-preview">
-                    <img src=https://asherweisberger.github.io/ApartmentsForRentCalifornia/777.jpg alt="Apartment 3"">
+                    <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/777.jpg" alt="Apartment 3">
                 </div>
                 <div class="listing-card-content">
                     <h2>Laurel Canyon</h2>
@@ -217,20 +222,20 @@
                 </div>
             </div>
 
-             <div class="listing-card">
+            <div class="listing-card">
                 <div class="listing-card-preview">
-                    <img src=https://asherweisberger.github.io/ApartmentsForRentCalifornia/d.jpg alt="Apartment 4"">
+                    <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/d.jpg" alt="Apartment 4">
                 </div>
                 <div class="listing-card-content">
-                    <h2>West HollyWood</h2>
+                    <h2>West Hollywood</h2>
                     <p>Luxury West Hollywood Home, sleek, bright, and efficient.</p>
                     <a href="apartment4.html">View Details</a>
                 </div>
             </div>
 
-             <div class="listing-card">
+            <div class="listing-card">
                 <div class="listing-card-preview">
-                    <img src=https://asherweisberger.github.io/ApartmentsForRentCalifornia/hh.jpg alt="Apartment 5"">
+                    <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/hh.jpg" alt="Apartment 5">
                 </div>
                 <div class="listing-card-content">
                     <h2>West Hollywood</h2>
@@ -239,19 +244,21 @@
                 </div>
             </div>
 
-             <div class="listing-card">
+            <div class="listing-card">
                 <div class="listing-card-preview">
-                    <img src=https://asherweisberger.github.io/ApartmentsForRentCalifornia/aaa.jpg alt="Apartment 6"">
+                    <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/aaa.jpg" alt="Apartment 6">
                 </div>
                 <div class="listing-card-content">
-                    <h2>Apartment 6</h2>
-                    <p>Pet-friendly 1-bedroom with park access and on-site gym.</p>
+                    <h2>Near Beverly Hills RARE LUXURY</h2>
+                    <p>Exclusive apartment near Beverly Hills with top-tier finishes.</p>
                     <a href="apartment6.html">View Details</a>
                 </div>
             </div>
 
             <div class="listing-card">
-                <div class="listing-card-preview">Apartment 7</div>
+                <div class="listing-card-preview">
+                    <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/apt7.jpg" alt="Apartment 7">
+                </div>
                 <div class="listing-card-content">
                     <h2>Apartment 7</h2>
                     <p>Fully furnished studio near public transit and cafes.</p>
@@ -260,7 +267,9 @@
             </div>
 
             <div class="listing-card">
-                <div class="listing-card-preview">Apartment 8</div>
+                <div class="listing-card-preview">
+                    <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/apt8.jpg" alt="Apartment 8">
+                </div>
                 <div class="listing-card-content">
                     <h2>Apartment 8</h2>
                     <p>Family-friendly 3-bedroom with backyard and covered parking.</p>
@@ -269,7 +278,9 @@
             </div>
 
             <div class="listing-card">
-                <div class="listing-card-preview">Apartment 9</div>
+                <div class="listing-card-preview">
+                    <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/apt9.jpg" alt="Apartment 9">
+                </div>
                 <div class="listing-card-content">
                     <h2>Apartment 9</h2>
                     <p>Cozy 1-bedroom loft with exposed brick and updated kitchen.</p>

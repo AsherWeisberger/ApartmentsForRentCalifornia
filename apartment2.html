@@ -175,7 +175,7 @@
 </head>
 <body>
     <header>
-        <h1>Cozy Studio in Los Angeles</h1>
+        <h1>Beverly Hills Luxury RARE Fine</h1>
     </header>
 
     <nav>
@@ -190,15 +190,15 @@
     <section class="images">
         <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/11.jpg" alt="Living Room" onclick="openLightbox(this.src)">
         <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/22.jpg" alt="Kitchen" onclick="openLightbox(this.src)">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/33.jpg" onclick="openLightbox(this.src)">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/44.jpg" onclick="openLightbox(this.src)">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/55.jpg" onclick="openLightbox(this.src)">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/66.jpg" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/33.jpg" alt="Bedroom" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/44.jpg" alt="Bathroom" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/55.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/66.jpg" alt="Exterior" onclick="openLightbox(this.src)">
     </section>
 
-    <div class="lightbox" id="lightbox">
-        <span class="close-btn" onclick="closeLightbox()">×</span>
-        <img id="lightbox-img" src="" alt="Enlarged Image">
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close-btn" onclick="closeLightbox()" aria-label="Close lightbox">×</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image" onclick="event.stopPropagation()">
     </div>
 
     <section id="details">
@@ -235,11 +235,19 @@
             const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = src;
             lightbox.style.display = 'flex';
+            document.addEventListener('keydown', handleKeyPress);
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.style.display = 'none';
+            document.removeEventListener('keydown', handleKeyPress);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
         }
     </script>
 </body>

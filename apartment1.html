@@ -188,17 +188,17 @@
     </nav>
 
     <section class="images">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/1.png" alt="Living Room">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/2.png" alt="Kitchen">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/3.png" alt="Bedroom">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/4.png" alt="Bathroom">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/5.png" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/6.png" alt="Exterior">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/1.png" alt="Living Room" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/2.png" alt="Kitchen" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/3.png" alt="Bedroom" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/4.png" alt="Bathroom" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/5.png" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/6.png" alt="Exterior" onclick="openLightbox(this.src)">
     </section>
 
-    <div class="lightbox" id="lightbox">
-        <span class="close-btn" onclick="closeLightbox()">×</span>
-        <img id="lightbox-img" src="" alt="Enlarged Image">
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close-btn" onclick="closeLightbox()" aria-label="Close lightbox">×</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image" onclick="event.stopPropagation()">
     </div>
 
     <section id="details">
@@ -235,11 +235,19 @@
             const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = src;
             lightbox.style.display = 'flex';
+            document.addEventListener('keydown', handleKeyPress);
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.style.display = 'none';
+            document.removeEventListener('keydown', handleKeyPress);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
         }
     </script>
 </body>

@@ -188,28 +188,27 @@
     </nav>
 
     <section class="images">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/aa.jpg" alt="Living Room">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/bb.jpg" alt="Kitchen">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/cc.jpg" alt="Bedroom">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/dd.jpg" alt="Bathroom">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/ee.jpg" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/ff.jpg" alt="Exterior">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/gg.jpg" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/hh.jpg" alt="Exterior">     
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/jj.jpg" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/kk.jpg" alt="Exterior">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/ll.jpg" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/mm.jpg" alt="Exterior">     
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/nn.jpg" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/oo.jpg" alt="Exterior">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/pp.jpg" alt="Balcony">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/ii.jpg" alt="Balcony">
-     
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/aa.jpg" alt="Living Room" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/bb.jpg" alt="Kitchen" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/cc.jpg" alt="Bedroom" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/dd.jpg" alt="Bathroom" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/ee.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/ff.jpg" alt="Exterior" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/gg.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/hh.jpg" alt="Exterior" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/jj.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/kk.jpg" alt="Exterior" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/ll.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/mm.jpg" alt="Exterior" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/nn.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/oo.jpg" alt="Exterior" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/pp.jpg" alt="Balcony" onclick="openLightbox(this.src)">
+        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/ii.jpg" alt="Balcony" onclick="openLightbox(this.src)">
     </section>
 
-    <div class="lightbox" id="lightbox">
-        <span class="close-btn" onclick="closeLightbox()">×</span>
-        <img id="lightbox-img" src="" alt="Enlarged Image">
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close-btn" onclick="closeLightbox()" aria-label="Close lightbox">×</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image" onclick="event.stopPropagation()">
     </div>
 
     <section id="details">
@@ -246,11 +245,19 @@
             const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = src;
             lightbox.style.display = 'flex';
+            document.addEventListener('keydown', handleKeyPress);
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.style.display = 'none';
+            document.removeEventListener('keydown', handleKeyPress);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
         }
     </script>
 </body>

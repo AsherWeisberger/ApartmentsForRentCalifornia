@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
             color: #1d1d1f;
         }
         header {
-            background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7));
+            background: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://your-github-username.github.io/ApartmentsForRentCalifornia/banner.jpeg') no-repeat center center/cover;
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -61,6 +62,7 @@
             border-radius: 12px;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            cursor: pointer;
         }
         .images img:hover {
             transform: scale(1.05);
@@ -122,6 +124,37 @@
             padding: 20px;
             font-size: 0.9rem;
         }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-btn:hover {
+            color: #2997ff;
+        }
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
@@ -132,6 +165,11 @@
             }
             .images {
                 grid-template-columns: 1fr;
+            }
+            .close-btn {
+                font-size: 1.5rem;
+                top: 15px;
+                right: 15px;
             }
         }
     </style>
@@ -151,13 +189,18 @@
     </nav>
 
     <section class="images">
-        <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/1.png" alt="Living Room">
+         <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/1.png" alt="Living Room">
         <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/2.png" alt="Kitchen">
         <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/3.png" alt="Bedroom">
         <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/4.png" alt="Bathroom">
         <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/5.png" alt="Balcony">
         <img src="https://asherweisberger.github.io/ApartmentsForRentCalifornia/6.png" alt="Exterior">
     </section>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+    </div>
 
     <section id="details">
         <h2>Details</h2>
@@ -186,5 +229,19 @@
     <footer>
         &copy; 2025 California Premier Rentals. All rights reserved.
     </footer>
+
+    <script>
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
